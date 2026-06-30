@@ -1,0 +1,529 @@
+/* =====================================================
+   STYLE - SIMULATION POMPE
+   Application ANW KA TA DJI
+   Design moderne et légèrement sombre
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #e8ecf1;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 520px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #1a3c34;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+/* =====================================================
+   CARTE DE LA POMPE
+===================================================== */
+
+.pompe-card {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.pompe-card h2 {
+    color: #2c3e50;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 20px 0 12px 0;
+    border-bottom: 2px solid #eef2f7;
+    padding-bottom: 8px;
+}
+
+.pompe-card h2:first-of-type {
+    margin-top: 0;
+}
+
+/* =====================================================
+   CHOIX CARBURANT
+===================================================== */
+
+.carburants {
+    display: flex;
+    gap: 12px;
+}
+
+.carburants button {
+    flex: 1;
+    padding: 18px 10px;
+    border: 2px solid #dce1e8;
+    border-radius: 12px;
+    background: #f8f9fa;
+    color: #2c3e50;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.carburants button:hover {
+    border-color: #2ecc71;
+    background: #f0fdf4;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(46, 204, 113, 0.15);
+}
+
+.carburants button:active {
+    transform: scale(0.97);
+}
+
+.carburants button:first-child {
+    border-color: #f39c12;
+}
+.carburants button:first-child:hover {
+    border-color: #f39c12;
+    background: #fffbf0;
+    box-shadow: 0 4px 12px rgba(243, 156, 18, 0.15);
+}
+
+.carburants button:last-child {
+    border-color: #2ecc71;
+}
+.carburants button:last-child:hover {
+    border-color: #2ecc71;
+    background: #f0fdf4;
+    box-shadow: 0 4px 12px rgba(46, 204, 113, 0.15);
+}
+
+.carburants button .prix {
+    font-size: 12px;
+    font-weight: normal;
+    color: #7f8c8d;
+}
+
+/* =====================================================
+   CARBURANT SÉLECTIONNÉ
+===================================================== */
+
+#carburant {
+    text-align: center;
+    padding: 12px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border: 1px solid #eef2f7;
+    font-size: 18px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin: 12px 0 0 0;
+}
+
+/* =====================================================
+   AFFICHAGE ÉCRAN
+===================================================== */
+
+.affichage {
+    background: #f8f9fa;
+    border: 2px solid #eef2f7;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 15px 0 10px 0;
+    text-align: center;
+}
+
+.affichage p {
+    font-size: 22px;
+    font-weight: bold;
+    color: #1a3c34;
+    margin: 8px 0;
+}
+
+.affichage p:last-child {
+    color: #27ae60;
+}
+
+.affichage span {
+    font-size: 26px;
+    color: #2c3e50;
+}
+
+.affichage .label {
+    color: #7f8c8d;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+/* =====================================================
+   PAVÉ NUMÉRIQUE
+===================================================== */
+
+.clavier {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.clavier button {
+    padding: 18px;
+    font-size: 22px;
+    font-weight: bold;
+    border: 1px solid #dce1e8;
+    border-radius: 12px;
+    background: #f8f9fa;
+    color: #2c3e50;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.clavier button:hover {
+    background: #eef2f7;
+    border-color: #3498db;
+    transform: translateY(-2px);
+}
+
+.clavier button:active {
+    transform: scale(0.95);
+}
+
+.clavier button:nth-child(10) {
+    background: #e74c3c;
+    color: white;
+    border-color: #e74c3c;
+}
+.clavier button:nth-child(10):hover {
+    background: #c0392b;
+    border-color: #c0392b;
+}
+
+.clavier button:last-child {
+    background: #3498db;
+    color: white;
+    border-color: #3498db;
+}
+.clavier button:last-child:hover {
+    background: #2980b9;
+    border-color: #2980b9;
+}
+
+/* =====================================================
+   BOUTON DÉMARRER
+===================================================== */
+
+.demarrer {
+    width: 100%;
+    padding: 16px;
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 12px;
+    background: #27ae60;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(39, 174, 96, 0.25);
+}
+
+.demarrer:hover:not(:disabled) {
+    background: #2ecc71;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(39, 174, 96, 0.35);
+}
+
+.demarrer:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.demarrer:active:not(:disabled) {
+    transform: scale(0.97);
+}
+
+/* =====================================================
+   BARRE DE PROGRESSION
+===================================================== */
+
+.progress-container {
+    background: #eef2f7;
+    border-radius: 10px;
+    height: 28px;
+    margin-top: 20px;
+    border: 1px solid #dce1e8;
+    overflow: hidden;
+}
+
+#progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #f39c12, #e67e22);
+    border-radius: 10px;
+    transition: width 0.1s ease;
+}
+
+/* =====================================================
+   MESSAGE
+===================================================== */
+
+#message {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 16px;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 10px;
+    background: #f8f9fa;
+    border: 1px solid #eef2f7;
+    min-height: 50px;
+}
+
+/* =====================================================
+   PAIEMENT
+===================================================== */
+
+.paiements {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.paiements button {
+    padding: 14px 10px;
+    border: 1px solid #dce1e8;
+    border-radius: 10px;
+    background: #f8f9fa;
+    color: #2c3e50;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.paiements button:hover {
+    background: #eef2f7;
+    border-color: #3498db;
+    transform: translateY(-2px);
+}
+
+.paiements button:active {
+    transform: scale(0.97);
+}
+
+.paiements button:nth-child(1) {
+    border-color: #27ae60;
+}
+.paiements button:nth-child(1):hover {
+    border-color: #2ecc71;
+    background: #f0fdf4;
+}
+
+.paiements button:nth-child(2) {
+    border-color: #f39c12;
+}
+.paiements button:nth-child(2):hover {
+    border-color: #e67e22;
+    background: #fffbf0;
+}
+
+.paiements button:nth-child(3) {
+    border-color: #3498db;
+}
+.paiements button:nth-child(3):hover {
+    border-color: #5dade2;
+    background: #f0f8ff;
+}
+
+.paiements button:nth-child(4) {
+    border-color: #9b59b6;
+}
+.paiements button:nth-child(4):hover {
+    border-color: #af7ac5;
+    background: #f8f0ff;
+}
+
+/* =====================================================
+   PAIEMENT CHOISI
+===================================================== */
+
+#paiement {
+    color: #27ae60;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* =====================================================
+   BOUTON VALIDER
+===================================================== */
+
+.valider {
+    width: 100%;
+    padding: 16px;
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 12px;
+    background: #e67e22;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(230, 126, 34, 0.25);
+}
+
+.valider:hover:not(:disabled) {
+    background: #f39c12;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(230, 126, 34, 0.35);
+}
+
+.valider:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.valider:active:not(:disabled) {
+    transform: scale(0.97);
+}
+
+/* =====================================================
+   TICKET
+===================================================== */
+
+#ticket {
+    margin-top: 20px;
+    padding: 20px;
+    background: #f8f9fa;
+    border: 2px solid #27ae60;
+    border-radius: 12px;
+    color: #2c3e50;
+    font-family: monospace;
+    font-size: 14px;
+    display: none;
+}
+
+#ticket:not(:empty) {
+    display: block;
+}
+
+#ticket h2 {
+    color: #27ae60;
+    text-align: center;
+    font-size: 20px;
+    border-bottom: 2px solid #eef2f7;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+#ticket hr {
+    border: none;
+    border-top: 2px dashed #dce1e8;
+    margin: 12px 0;
+}
+
+#ticket b {
+    color: #7f8c8d;
+}
+
+#ticket p {
+    margin: 6px 0;
+    color: #2c3e50;
+}
+
+/* =====================================================
+   BOUTON NOUVELLE VENTE
+===================================================== */
+
+.nouvelle-vente {
+    width: 100%;
+    padding: 14px;
+    margin-top: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    border: 1px solid #dce1e8;
+    border-radius: 12px;
+    background: #f8f9fa;
+    color: #2c3e50;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nouvelle-vente:hover {
+    background: #eef2f7;
+    border-color: #3498db;
+    transform: translateY(-2px);
+}
+
+.nouvelle-vente:active {
+    transform: scale(0.97);
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 580px) {
+    .container {
+        width: 95%;
+        padding: 10px;
+        margin: 15px auto;
+    }
+
+    .pompe-card {
+        padding: 20px;
+    }
+
+    .carburants button,
+    .paiements button {
+        font-size: 14px;
+        padding: 12px 8px;
+    }
+
+    .affichage p {
+        font-size: 18px;
+    }
+
+    .affichage span {
+        font-size: 20px;
+    }
+
+    .clavier button {
+        padding: 14px;
+        font-size: 18px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    .paiements {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 400px) {
+    .carburants {
+        flex-direction: column;
+    }
+    .carburants button {
+        width: 100%;
+    }
+    .paiements {
+        grid-template-columns: 1fr;
+    }
+}

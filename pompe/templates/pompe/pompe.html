@@ -1,0 +1,118 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Simulation Pompe - ANW KA TA DJI</title>
+    <link rel="stylesheet" href="{% static 'pompe/css/style.css' %}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>⛽ Simulation Pompe</h1>
+
+    <div class="pompe-card">
+
+        <!-- ✅ CHAMP CACHÉ POUR SESSION_ID -->
+        <input type="hidden" id="session-id" value="{{ session_id }}">
+
+        <!-- Choix carburant -->
+        <h2>Choisir le carburant</h2>
+
+        <div class="carburants">
+            <button onclick="choisirCarburant('Essence', 875)">
+                ⛽ Essence
+                <br>
+                875 FCFA/L
+            </button>
+
+            <button onclick="choisirCarburant('Gasoil', 940)">
+                🛢️ Gasoil
+                <br>
+                940 FCFA/L
+            </button>
+        </div>
+
+        <h3 id="carburant">Aucun carburant sélectionné</h3>
+
+        <!-- Affichage du montant saisi et quantité calculée -->
+        <div class="affichage">
+            <p>
+                💰 Montant saisi :
+                <span id="montant-saisi">0</span> FCFA
+            </p>
+
+            <p>
+                ⛽ Quantité calculée :
+                <span id="litres">0.00</span> L
+            </p>
+        </div>
+
+        <!-- Pavé numérique pour entrer le montant -->
+        <h2>Entrez le montant (FCFA)</h2>
+
+        <div class="clavier">
+            <button onclick="ajouterChiffre(1)">1</button>
+            <button onclick="ajouterChiffre(2)">2</button>
+            <button onclick="ajouterChiffre(3)">3</button>
+
+            <button onclick="ajouterChiffre(4)">4</button>
+            <button onclick="ajouterChiffre(5)">5</button>
+            <button onclick="ajouterChiffre(6)">6</button>
+
+            <button onclick="ajouterChiffre(7)">7</button>
+            <button onclick="ajouterChiffre(8)">8</button>
+            <button onclick="ajouterChiffre(9)">9</button>
+
+            <button onclick="vider()">C</button>
+            <button onclick="ajouterChiffre(0)">0</button>
+            <button onclick="supprimerChiffre()">⌫</button>
+        </div>
+
+        <!-- Remplissage -->
+        <button class="demarrer" onclick="demarrerRemplissage()" id="btn-demarrer" disabled>
+            ⛽ Démarrer le remplissage
+        </button>
+
+        <div class="progress-container">
+            <div id="progress-bar"></div>
+        </div>
+
+        <h3 id="message"></h3>
+
+        <!-- Paiement -->
+        <h2>Mode de paiement</h2>
+
+        <div class="paiements">
+            <button onclick="choisirPaiement('Espèces')">💵 Espèces</button>
+            <button onclick="choisirPaiement('Orange Money')">📱 Orange Money</button>
+            <button onclick="choisirPaiement('Wave')">📱 Wave</button>
+            <button onclick="choisirPaiement('Mobicash')">📱 Mobicash</button>
+        </div>
+
+        <p>
+            Paiement choisi :
+            <strong id="paiement">Aucun</strong>
+        </p>
+
+        <!-- Validation -->
+        <button class="valider" onclick="validerVente()" id="btn-valider" disabled>
+            💳 Valider la vente
+        </button>
+
+        <!-- Ticket -->
+        <div id="ticket"></div>
+
+    </div>
+
+</div>
+
+<script src="{% static 'pompe/js/pompe.js' %}"></script>
+
+</body>
+
+</html>
